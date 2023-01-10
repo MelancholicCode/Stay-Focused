@@ -1,5 +1,4 @@
 .tasks {
-  width: 60%;
   &__form {
     position: relative;
     display: flex;
@@ -45,17 +44,34 @@
 
   }
   &__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
     border: 1px solid var(--grey);
-    padding: 30px;
+    padding: 30px 20px;
   }
   &__item-text {
     display: flex;
     align-items: center;
+    width: 100%;
+    max-width: 85%;
     gap: 15px;
+    &_active {
+      .tasks__item-checkbox {
+        display: none;
+      }
+      .tasks__item-value {
+        display: none;
+      }
+      .tasks__item-input {
+        display: block;
+      }
+    }
   }
   &__item-checkbox {
     cursor: pointer;
     position: relative;
+    padding-left: 35%;
     &::before {
       position: absolute;
       top: -35%;
@@ -74,20 +90,54 @@
   }
   &__item-value {
     cursor: pointer;
+    word-wrap: break-word;
+    width: 100%;
     transition: color .3s;
+    font-size: 20px;
     &:hover {
       color: var(--accent-color);
     }
   }
   &__item-input {
+    display: none;
     background-color: transparent;
     border: none;
     outline: none;
+    font-size: 20px;
+    width: 100%;
+  }
+  &__item-buttons {
+    position: relative;
+    display: flex;
+    gap: 20px;
+  }
+  &__item-favorite-btn {
+    cursor: pointer;
+    display: block;
+    width: 30px;
+    height: 30px;
+    fill: var(--dark);
+    &_active {
+      fill: var(--red-color);
+    }
+    &:hover {
+      fill: var(--light-blue);
+    }
+  }
+  &__item-delete-btn {
+    cursor: pointer;
+    display: block;
+    width: 30px;
+    height: 30px;
+    fill: var(--dark);
+    &:hover {
+      fill: var(--light-blue);
+    }
   }
   &__create-btn {
     cursor: pointer;
     border: 1px solid var(--dark);
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     &:hover {
       border: 1px solid transparent;

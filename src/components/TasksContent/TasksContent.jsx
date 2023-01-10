@@ -58,6 +58,22 @@ const TasksContent = () => {
     })
   }
 
+  const onFavoriteTask = (id) => {
+    setTasks(prev => {
+      return prev.map(task => {
+        if (task.id === id) {
+          task.isFavorite = !task.isFavorite;
+          return task;
+        }
+        return task;
+      })
+    })
+  }
+
+  const onDeleteTask = (id) => {
+    setTasks(prev => prev.filter(task => task.id !== id));
+  }
+
   return (
     <div className="tasks">
       <Modal
@@ -72,7 +88,9 @@ const TasksContent = () => {
       <TasksList
         tasks={tasks}
         onDoneTask={onDoneTask}
-        editTask={editTask}/>
+        editTask={editTask}
+        onFavoriteTask={onFavoriteTask}
+        onDeleteTask={onDeleteTask}/>
     </div>
   );
 };

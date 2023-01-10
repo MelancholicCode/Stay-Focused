@@ -4,7 +4,9 @@ const TodoPage = () => {
 
   return (
     <div className="TodoPage">
-      <TasksContent/>
+      <div className="TodoPage__container">
+        <TasksContent/>
+      </div>
     </div>
   );
 };

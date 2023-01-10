@@ -1,7 +1,7 @@
 import React from 'react';
 import TaskItem from '../TaskItem/TaskItem';
 
-const TasksList = ({tasks, onDoneTask, editTask}) => {
+const TasksList = ({tasks, onDoneTask, editTask, onFavoriteTask, onDeleteTask}) => {
   return (
     <ul className="tasks__list">
       {tasks.length
@@ -10,7 +10,9 @@ const TasksList = ({tasks, onDoneTask, editTask}) => {
               key={task.id}
               task={task}
               onDoneTask={onDoneTask}
-              editTask={editTask}/>
+              editTask={editTask}
+              onFavoriteTask={onFavoriteTask}
+              onDeleteTask={onDeleteTask}/>
           ))
         : <p>Список дел пуст</p>
       }
