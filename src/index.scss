@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Monrad Grotesk";
+  src: url("fonts/Monrad Grotesk-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Monrad Grotesk";
+  src: url("fonts/Monrad Grotesk-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Monrad Grotesk";
+  src: url("fonts/Monrad Grotesk-Semibold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Monrad Grotesk";
+  src: url("fonts/Monrad Grotesk-Bold.ttf");
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  font-family: var(--main-font);
+  font-weight: 300;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--main-font);
+  font-weight: 300;
+}
+
+.App {
+  width: 100%;
+  height: 100vh;
+  font-family: var(--main-font);
+  font-weight: 300;
+  background-color: var(--bg-color);
+}
