@@ -1,21 +1,23 @@
-
+import "./Header.scss";
 
 const Header = () => {
   return (
-    <div className='Header'>
-      <div className="header__section-title">
-        <div className="header__section-icon"></div>
-        <p className="header__section-text"></p>
+    <div className='header'>
+      <div className="header__container">
+        <div className="header__section-title">
+          <div className="header__section-icon"></div>
+          <p className="header__section-text">Название</p>
+        </div>
         <nav>
           <ul className="header__link-list">
             <li className="header__link-item">
-              Список дел
+              Todo
             </li>
             <li className="header__link-item">
-              Раздел 2
+              Музыка
             </li>
             <li className="header__link-item">
-              Раздел 3
+              Таймер
             </li>
           </ul>
         </nav>
