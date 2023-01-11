@@ -13,7 +13,7 @@ const TasksList = ({tasks, onDoneTask, editTask, onFavoriteTask, onDeleteTask}) 
               editTask={editTask}
               onFavoriteTask={onFavoriteTask}
               onDeleteTask={onDeleteTask}/>
-          ))
+          )).reverse()
         : <p>Список дел пуст</p>
       }
     </ul>
