@@ -1,4 +1,5 @@
 .tasks {
+  padding: 20px;
   &__form {
     position: relative;
     display: flex;
@@ -47,8 +48,10 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    border: 1px solid var(--grey);
     padding: 30px 20px;
+    &:hover {
+      outline: 3px solid var(--light-blue);
+    }
   }
   &__item-text {
     display: flex;
@@ -74,6 +77,7 @@
     padding-left: 35%;
     &::before {
       position: absolute;
+      transition: border .3s;
       top: -35%;
       left: -35%;
       content: '';
@@ -81,6 +85,11 @@
       height: 20px;
       border: 1px solid #000;
       background-color: var(--bg-color);
+    }
+    &:hover {
+      &::before {
+        border: 1px solid var(--accent-color);
+      }
     }
     &:checked {
       &::before {
@@ -109,6 +118,7 @@
   &__item-buttons {
     position: relative;
     display: flex;
+    height: max-content;
     gap: 20px;
   }
   &__item-favorite-btn {
@@ -117,11 +127,12 @@
     width: 30px;
     height: 30px;
     fill: var(--dark);
+    transition: fill .3s;
     &_active {
       fill: var(--red-color);
     }
     &:hover {
-      fill: var(--light-blue);
+      fill: var(--accent-color);
     }
   }
   &__item-delete-btn {
@@ -130,14 +141,16 @@
     width: 30px;
     height: 30px;
     fill: var(--dark);
+    transition: fill .3s;
     &:hover {
-      fill: var(--light-blue);
+      fill: var(--accent-color);
     }
   }
   &__create-btn {
     cursor: pointer;
     border: 1px solid var(--dark);
     padding: 20px;
+    margin-bottom: 20px;
     text-align: center;
     &:hover {
       border: 1px solid transparent;
