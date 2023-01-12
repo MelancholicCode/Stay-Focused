@@ -3,27 +3,7 @@ import Modal from '../Modal/Modal';
 import TasksForm from '../TasksForm/TasksForm';
 import TasksList from '../TasksList/TasksList';
 
-const TasksContent = () => {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: 'Какое-то дело',
-      isDone: false,
-      isFavorite: false
-    },
-    {
-      id: 2,
-      text: 'Еще одно дело',
-      isDone: false,
-      isFavorite: false
-    },
-    {
-      id: 3,
-      text: 'И еще одно дело',
-      isDone: false,
-      isFavorite: false
-    }
-  ]);
+const TasksContent = ({tasks, setTasks}) => {
   const [isFormActive, setFormActive] = useState(false);
 
   const addTask = (text) => {

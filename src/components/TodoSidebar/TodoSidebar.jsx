@@ -1,6 +1,12 @@
-import React from 'react';
 
-const TodoSidebar = () => {
+const TodoSidebar = ({currentOption, setCurrentOption}) => {
+  const taskOptions = [
+    {option: 'task-list', text: 'Весь список'},
+    {option: 'favorites', text: 'Избранное'},
+    {option: 'uncompleted', text: 'Незавершённые'},
+    {option: 'completed', text: 'Завершённые'},
+    {option: 'statistics', text: 'Статистика'}
+  ];
   return (
     <div className="todo-sidebar">
     <div className="todo-sidebar__search">
@@ -10,11 +16,12 @@ const TodoSidebar = () => {
       <input type="text" className="todo-sidebar__search-input" placeholder='Найти записи'/>
     </div>
     <ul className="todo-sidebar__list">
-      <li className="todo-sidebar__item">Весь список</li>
-      <li className="todo-sidebar__item">Избранное</li>
-      <li className="todo-sidebar__item">Незавершённые</li>
-      <li className="todo-sidebar__item">Завершённые</li>
-      <li className="todo-sidebar__item">Статистика</li>
+      {taskOptions.map(item => (
+        <li
+          onClick={() => setCurrentOption(item.option)}
+          className={`todo-sidebar__item ${item.option === currentOption ? 'todo-sidebar__item_active' : null}`}>
+          {item.text}</li>
+      ))}
     </ul>
   </div>
   );
