@@ -3,4 +3,11 @@
 
 .TodoPage {
   padding-top: 85px;
+  height: 100%;
+  &__container {
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+  }
 }

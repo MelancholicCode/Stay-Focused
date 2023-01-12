@@ -1,0 +1,53 @@
+.todo-sidebar {
+  width: 30%;
+  color: var(--dark);
+  @media (max-width: 1280px) {
+    background-color: var(--red-color);
+    color: #fff;
+  }
+  &__search {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &__search-icon {
+    width: 25px;
+    height: 25px;
+    fill: var(--dark);
+    @media (max-width: 1280px) {
+      fill: #fff;
+    }
+  }
+  &__search-input {
+    font-size: 20px;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    color: var(--dark);
+    &::placeholder {
+      color: var(--dark);
+    }
+    @media (max-width: 1280px) {
+      color: #fff;
+      &::placeholder {
+        color: #fff;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  &__item {
+    padding: 20px;
+    &:hover {
+      outline: 3px solid var(--light-blue);
+    }
+  }
+}
