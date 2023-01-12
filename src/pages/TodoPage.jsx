@@ -4,6 +4,8 @@ import TodoSidebar from '../components/TodoSidebar/TodoSidebar';
 
 const TodoPage = () => {
   const [currentOption, setCurrentOption] = useState('task-list');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [timer, setTimer] = useState(null);
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -24,31 +26,42 @@ const TodoPage = () => {
       isFavorite: false
     }
   ]);
-  let visibleTasks = tasks;
+  let filteredTasks = tasks;
+
   switch(currentOption) {
       case 'task-list':
-        visibleTasks = tasks;
+        filteredTasks = tasks;
         break;
       case 'favorites':
-        visibleTasks = tasks.filter(task => task.isFavorite);
+        filteredTasks = tasks.filter(task => task.isFavorite);
         break;
       case 'completed':
-        visibleTasks = tasks.filter(task => task.isDone);
+        filteredTasks = tasks.filter(task => task.isDone);
         break;
       case 'uncompleted':
-        visibleTasks = tasks.filter(task => !task.isDone);
+        filteredTasks = tasks.filter(task => !task.isDone);
         break;
       default:
-        visibleTasks = tasks;
+        filteredTasks = tasks;
   }
+
+  const searchTasks = (value) => {
+    clearTimeout(timer);
+    setTimer(setTimeout(() => setSearchQuery(value), 1000));
+  }
+
+  let searchedFilteredTasks = filteredTasks.filter(task => task.text.toLowerCase().includes(searchQuery.toLowerCase()));
+
   return (
     <div className="TodoPage">
       <div className="TodoPage__container">
         <TodoSidebar
           currentOption={currentOption}
-          setCurrentOption={setCurrentOption}/>
+          setCurrentOption={setCurrentOption}
+          searchTasks={searchTasks}
+          setSearchQuery={setSearchQuery}/>
         <TasksContent
-          tasks={visibleTasks}
+          tasks={searchedFilteredTasks}
           setTasks={setTasks}/>
       </div>
     </div>
