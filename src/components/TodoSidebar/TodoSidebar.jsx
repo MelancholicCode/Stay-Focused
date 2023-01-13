@@ -1,19 +1,19 @@
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
-const TodoSidebar = ({currentOption, setCurrentOption, searchTasks, setSearchQuery}) => {
+const TodoSidebar = ({searchTasks, setSearchQuery}) => {
   const [searchInput, setSearchInput] = useState('');
   const taskOptions = [
-    {option: 'task-list', text: 'Весь список'},
-    {option: 'favorites', text: 'Избранное'},
-    {option: 'uncompleted', text: 'Незавершённые'},
-    {option: 'completed', text: 'Завершённые'},
-    {option: 'statistics', text: 'Статистика'}
+    {path: 'tasks', text: 'Весь список'},
+    {path: 'favorites', text: 'Избранное'},
+    {path: 'uncompleted', text: 'Незавершённые'},
+    {path: 'completed', text: 'Завершённые'},
+    {path: 'statistics', text: 'Статистика'}
   ];
 
-  const onChangeOption = (option) => {
+  const onChangeOption = () => {
     setSearchInput('');
     setSearchQuery('');
-    setCurrentOption(option);
   }
 
   const onSearchTasks = (value) => {
@@ -36,10 +36,12 @@ const TodoSidebar = ({currentOption, setCurrentOption, searchTasks, setSearchQue
     </div>
     <ul className="todo-sidebar__list">
       {taskOptions.map(item => (
-        <li
-          onClick={() => onChangeOption(item.option)}
-          className={`todo-sidebar__item ${item.option === currentOption ? 'todo-sidebar__item_active' : null}`}>
-          {item.text}</li>
+          <NavLink
+            to={`/todo/${item.path}`}
+            onClick={onChangeOption}
+            className={({isActive}) => isActive ? 'todo-sidebar__item todo-sidebar__item_active' : 'todo-sidebar__item'}
+            key={item.path}>
+            {item.text}</NavLink>
       ))}
     </ul>
   </div>

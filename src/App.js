@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Header/>
         <Routes>
-          <Route path="/todo" element={<TodoPage/>}/>
+          <Route path="/todo/*" element={<TodoPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

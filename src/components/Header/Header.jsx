@@ -19,7 +19,9 @@ const Header = () => {
         <nav>
           <ul className="header__link-list">
             {linkItems.map(item => (
-              <li className="header__link-item">
+              <li
+                className="header__link-item"
+                key={item.path}>
                 <Link to={item.path}>{item.title}</Link>
               </li>
             ))}
