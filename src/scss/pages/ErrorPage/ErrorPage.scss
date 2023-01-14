@@ -1,0 +1,24 @@
+.error-page {
+  padding-top: 90px;
+  height: 100%;
+  &__container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: clamp(3.125rem, 1.042rem + 10.42vw, 9.375rem);
+  }
+  &__title {
+    font-size: clamp(3.125rem, 2.083rem + 5.21vw, 6.25rem);
+  }
+  &__text {
+    font-size: clamp(1.125rem, 0.875rem + 1.25vw, 1.875rem);
+  }
+  &__picture {
+    width: 30%;
+  }
+}
