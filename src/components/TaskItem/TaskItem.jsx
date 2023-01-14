@@ -4,7 +4,7 @@ const TaskItem = ({task, onDoneTask, editTask, onFavoriteTask, onDeleteTask}) =>
   const [inputValue, setInputValue] = useState(task.text);
   const [isInputActive, setInputActive] = useState(false);
 
-  const input = useRef();
+  const input = useRef(null);
 
   useEffect(() => {
     if (isInputActive) {

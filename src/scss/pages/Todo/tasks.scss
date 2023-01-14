@@ -1,6 +1,7 @@
 .tasks {
   padding: 20px;
   width: 70%;
+  overflow-y: auto;
   &__form {
     position: relative;
     display: flex;
@@ -43,7 +44,7 @@
     fill: var(--grey);
   }
   &__list {
-
+    
   }
   &__item {
     display: flex;

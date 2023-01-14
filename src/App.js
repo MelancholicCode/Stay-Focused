@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import TodoPage from "./pages/TodoPage";
 
@@ -9,6 +9,7 @@ function App() {
       <BrowserRouter>
         <Header/>
         <Routes>
+          <Route path="/" element={<Navigate to="/todo" replace />}/>
           <Route path="/todo/*" element={<TodoPage/>}/>
         </Routes>
       </BrowserRouter>

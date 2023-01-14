@@ -1,6 +1,8 @@
 .todo-sidebar {
   width: 30%;
   color: var(--dark);
+  padding: 0 15px;
+  overflow-y: auto;
   @media (max-width: 1280px) {
     background-color: var(--red-color);
     color: #fff;

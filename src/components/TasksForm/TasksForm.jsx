@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-const TasksForm = ({setFormActive, addTask}) => {
+const TasksForm = ({isActive, setFormActive, addTask}) => {
   const [formInput, setFormInput] = useState('');
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [isActive]);
 
   const onCloseForm = () => {
     setFormActive(false);
@@ -26,6 +32,7 @@ const TasksForm = ({setFormActive, addTask}) => {
       className="tasks__form">
       <div className="tasks__form-input-wrapper">
         <input
+          ref={inputRef}
           onChange={e => setFormInput(e.target.value)}
           value={formInput}
           type="text"

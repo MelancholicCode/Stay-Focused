@@ -80,9 +80,11 @@ const TasksContent = ({searchQuery, tasks, setTasks}) => {
   return (
     <div className="tasks">
       <Modal
-        isActive={isFormActive}>
+        isActive={isFormActive}
+        setIsActive={setFormActive}>
         <TasksForm
           addTask={addTask}
+          isActive={isFormActive}
           setFormActive={setFormActive}/>
       </Modal>
       <div

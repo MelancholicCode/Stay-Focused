@@ -14,7 +14,7 @@ const Header = () => {
       <div className="header__container">
         <div className="header__section-title">
           <div className="header__section-icon"></div>
-          <p className="header__section-text">Название</p>
+          <p className="header__section-text">Название приложения</p>
         </div>
         <nav>
           <ul className="header__link-list">
