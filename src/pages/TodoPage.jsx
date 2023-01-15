@@ -33,7 +33,7 @@ const TodoPage = () => {
   }
 
   return (
-    <div className="TodoPage">
+    <main className="TodoPage page">
       <div className="TodoPage__container">
         <TodoSidebar
           searchTasks={searchTasks}
@@ -53,7 +53,7 @@ const TodoPage = () => {
             }/>
         </Routes>
       </div>
-    </div>
+    </main>
   );
 };
 

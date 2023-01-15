@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const TodoSidebar = ({searchTasks, setSearchQuery}) => {
   const [searchInput, setSearchInput] = useState('');
@@ -7,8 +7,7 @@ const TodoSidebar = ({searchTasks, setSearchQuery}) => {
     {path: 'tasks', text: 'Весь список'},
     {path: 'favorites', text: 'Избранное'},
     {path: 'uncompleted', text: 'Незавершённые'},
-    {path: 'completed', text: 'Завершённые'},
-    {path: 'statistics', text: 'Статистика'}
+    {path: 'completed', text: 'Завершённые'}
   ];
 
   const onChangeOption = () => {

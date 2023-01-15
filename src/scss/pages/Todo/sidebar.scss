@@ -1,12 +1,8 @@
 .todo-sidebar {
   width: 30%;
   color: var(--dark);
-  padding: 0 15px;
+  padding: 15px;
   overflow-y: auto;
-  @media (max-width: 1280px) {
-    background-color: var(--red-color);
-    color: #fff;
-  }
   &__search {
     padding: 20px;
     display: flex;
@@ -17,9 +13,6 @@
     width: 25px;
     height: 25px;
     fill: var(--dark);
-    @media (max-width: 1280px) {
-      fill: #fff;
-    }
   }
   &__search-input {
     font-size: 20px;
@@ -31,12 +24,6 @@
     color: var(--dark);
     &::placeholder {
       color: var(--dark);
-    }
-    @media (max-width: 1280px) {
-      color: #fff;
-      &::placeholder {
-        color: #fff;
-      }
     }
   }
   &__list {

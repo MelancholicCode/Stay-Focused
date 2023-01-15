@@ -1,36 +1,45 @@
 .header {
   position: fixed;
   width: 100%;
-  padding: 30px 0;
-  background-color: #FF2424;
-  color: #fff;
+  height: 90px;
+  color: var(--dark);
   font-size: 20px;
   top: 0;
   left: 0;
+  border-bottom: 1px solid var(--dark);
   &__container {
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
-  &__section-title {
-    
-  }
-  &__section-icon {
-
-  }
-  &__section-text {
-
+  &__nav {
   }
   &__link-list {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
   }
   &__link-item {
+    width: 50px;
+    height: 50px;
   }
-  &__options-btn {
-    width: 25px;
-    height: 25px;
-    fill: #fff;
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border-radius: 50%;
+    border: 2px solid var(--dark);
+    fill: var(--dark);
+    &_active {
+      fill: var(--accent-color);
+      border: 2px solid var(--accent-color);
+    }
+  }
+  &__link-icon {
+    fill: inherit;
+    width: 100%;
+    height: 100%;
   }
 }
