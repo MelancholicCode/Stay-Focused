@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+import { useMatch, useParams } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import TasksForm from '../TasksForm/TasksForm';
 import TasksList from '../TasksList/TasksList';
@@ -7,6 +8,9 @@ import TasksList from '../TasksList/TasksList';
 const TasksContent = ({searchQuery, tasks, setTasks}) => {
   const {currentFilter} = useParams();
   const [isFormActive, setFormActive] = useState(false);
+  const isTabletOrMobile = useMediaQuery({query: '(max-width: 768px)'});
+  const isMainMenu = useMatch('/todo');
+  const isMenuActive = isTabletOrMobile && isMainMenu;
 
   let filteredTasks = tasks;
 
@@ -78,7 +82,7 @@ const TasksContent = ({searchQuery, tasks, setTasks}) => {
   }
 
   return (
-    <div className="tasks">
+    <div className={isMenuActive ? 'hide' : 'tasks'}>
       <Modal
         isActive={isFormActive}
         setIsActive={setFormActive}>

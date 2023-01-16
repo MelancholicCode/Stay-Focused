@@ -3,6 +3,9 @@
   color: var(--dark);
   padding: 15px;
   overflow-y: auto;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   &__search {
     padding: 20px;
     display: flex;
