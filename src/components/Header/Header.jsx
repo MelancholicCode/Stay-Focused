@@ -3,6 +3,7 @@ import "./Header.scss";
 import MusicIcon from "../../img/icons/component-icons/MusicIcon";
 import NoteIcon from "../../img/icons/component-icons/NoteIcon";
 import WatchIcon from "../../img/icons/component-icons/WatchIcon";
+import ArrowIcon from "../../img/icons/component-icons/ArrowIcon";
 
 const Header = () => {
   const linkItems = [
@@ -25,6 +26,9 @@ const Header = () => {
             ))}
           </ul>
         </nav>
+        <div className="header__trigger">
+          <ArrowIcon clazz="header__arrow-icon"/>
+        </div>
       </div>
     </div>
   );
