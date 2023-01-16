@@ -27,30 +27,41 @@ const TodoPage = () => {
       isFavorite: false
     }
   ]);
+  const [searchInput, setSearchInput] = useState('');
 
   const searchTasks = (value) => {
     clearTimeout(timer);
     setTimer(setTimeout(() => setSearchQuery(value), 1000));
   }
 
+  const onChangeOption = () => {
+    setSearchInput('');
+    setSearchQuery('');
+  }
+
   return (
     <main className="TodoPage page">
       <div className="TodoPage__container">
         <TodoSidebar
-          searchTasks={searchTasks}
-          setSearchQuery={setSearchQuery}/>
+          onChangeOption={onChangeOption}/>
         <Routes>
           <Route index element={
             <TasksContent
               tasks={tasks}
               searchQuery={searchQuery}
-              setTasks={setTasks}/>
+              setTasks={setTasks}
+              searchTasks={searchTasks}
+              searchInput={searchInput}
+              setSearchInput={setSearchInput}/>
             }/>
           <Route path=':currentFilter' element={
               <TasksContent
                 tasks={tasks}
                 searchQuery={searchQuery}
-                setTasks={setTasks}/>
+                setTasks={setTasks}
+                searchTasks={searchTasks}
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}/>
             }/>
         </Routes>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskItem from '../TaskItem/TaskItem';
+import emptyListImg from '../../img/empty-list.png';
 
 const TasksList = ({tasks, onDoneTask, editTask, onFavoriteTask, onDeleteTask}) => {
   return (
@@ -14,7 +15,10 @@ const TasksList = ({tasks, onDoneTask, editTask, onFavoriteTask, onDeleteTask}) 
               onFavoriteTask={onFavoriteTask}
               onDeleteTask={onDeleteTask}/>
           )).reverse()
-        : <p>Список дел пуст</p>
+        : <div className="tasks__empty-list">
+            <img src={emptyListImg} alt="" />
+            <p>Список пуст</p>
+          </div>
       }
     </ul>
   );

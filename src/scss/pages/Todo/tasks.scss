@@ -2,6 +2,9 @@
   padding: 15px;
   width: 70%;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -9,6 +12,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    width: clamp(18.125rem, 11.08rem + 35.23vw, 37.5rem);
   }
   &__form-input-wrapper {
     display: flex;
@@ -24,6 +28,7 @@
     outline: none;
     font-size: 24px;
     padding: 10px;
+    width: 100%;
   }
   &__form-btn {
     display: block;
@@ -49,10 +54,23 @@
   &__list {
     
   }
+  &__empty-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    img {
+      width: clamp(12.5rem, 11.458rem + 5.21vw, 15.625rem);
+    }
+    p {
+      font-size: 24px;
+      color: var(--dark);
+    }
+  }
   &__item {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
     padding: 30px 20px;
     &:hover {
       outline: 3px solid var(--light-blue);
@@ -124,7 +142,7 @@
     position: relative;
     display: flex;
     height: max-content;
-    gap: 20px;
+    gap: 10px;
   }
   &__item-favorite-btn {
     cursor: pointer;
@@ -155,8 +173,9 @@
     cursor: pointer;
     border: 1px solid var(--dark);
     padding: 20px;
-    margin-bottom: 20px;
     text-align: center;
+    font-size: 18px;
+    border-radius: 10px;
     &:hover {
       border: 1px solid transparent;
       outline: 3px solid var(--light-blue);

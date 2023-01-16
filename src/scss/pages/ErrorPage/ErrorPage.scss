@@ -19,6 +19,6 @@
     font-size: clamp(1.125rem, 0.875rem + 1.25vw, 1.875rem);
   }
   &__picture {
-    width: 30%;
+    width: clamp(12.5rem, 11.458rem + 5.21vw, 15.625rem);
   }
 }

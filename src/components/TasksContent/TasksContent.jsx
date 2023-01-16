@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useMatch, useParams } from 'react-router-dom';
 import Modal from '../Modal/Modal';
+import Search from '../Search/Search';
 import TasksForm from '../TasksForm/TasksForm';
 import TasksList from '../TasksList/TasksList';
 
-const TasksContent = ({searchQuery, tasks, setTasks}) => {
+const TasksContent = ({searchQuery, tasks, setTasks, searchTasks, searchInput, setSearchInput}) => {
   const {currentFilter} = useParams();
   const [isFormActive, setFormActive] = useState(false);
+
   const isTabletOrMobile = useMediaQuery({query: '(max-width: 768px)'});
   const isMainMenu = useMatch('/todo');
   const isMenuActive = isTabletOrMobile && isMainMenu;
@@ -34,10 +36,26 @@ const TasksContent = ({searchQuery, tasks, setTasks}) => {
   let searchedFilteredTasks = filteredTasks.filter(task => task.text.toLowerCase().includes(searchQuery.toLowerCase()));
 
   const addTask = (text) => {
-    setTasks(prev => [...prev, {
+    const newTask = {
       id: new Date(),
-      text
-    }])
+      text,
+      isDone: false,
+      isFavorite: false
+    };
+    
+    switch(currentFilter) {
+      case 'tasks':
+        setTasks(prev => [...prev, newTask]);
+        break;
+      case 'favorites':
+        setTasks(prev => [...prev, {...newTask, isFavorite: true}]);
+        break;
+      case 'completed':
+        setTasks(prev => [...prev, {...newTask, isDone: true}]);
+        break;
+      default:
+        setTasks(prev => [...prev, newTask]);
+    }
   }
 
   const onDoneTask = (id) => {
@@ -91,6 +109,10 @@ const TasksContent = ({searchQuery, tasks, setTasks}) => {
           isActive={isFormActive}
           setFormActive={setFormActive}/>
       </Modal>
+      <Search
+        searchTasks={searchTasks}
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}/>
       <div
         onClick={() => setFormActive(true)}
         className="tasks__create-btn">Создать занятие</div>
