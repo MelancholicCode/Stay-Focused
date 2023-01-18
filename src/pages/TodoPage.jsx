@@ -25,7 +25,7 @@ const TodoPage = () => {
       text: 'И еще одно дело',
       isDone: false,
       isFavorite: false
-    }
+    },
   ]);
   const [searchInput, setSearchInput] = useState('');
 

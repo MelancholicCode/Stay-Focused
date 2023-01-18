@@ -55,6 +55,7 @@ button {
 /* General */
 
 .page {
+  height: 100%;
   padding-top: var(--header-height);
   @media (min-width: 769px) {
     padding-top: var(--trigger-height);

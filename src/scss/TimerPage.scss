@@ -1,0 +1,44 @@
+.TimerPage {
+  &__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  &__mode-list {
+    display: flex;
+    gap: 20px;
+  }
+  &__mode-item {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: #fff;
+    &_active {
+      background-color: #fff;
+      border: 1px solid var(--accent-color);
+      color: var(--accent-color);
+    }
+  }
+}
+
+.timer-settings {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  &__label {
+    color: rgb(100, 100, 100);
+  }
+  &__range {
+
+  }
+}

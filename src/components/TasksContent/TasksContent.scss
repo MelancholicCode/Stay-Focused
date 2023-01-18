@@ -8,6 +8,7 @@
   @media (max-width: 768px) {
     width: 100%;
   }
+
   &__form {
     position: relative;
     display: flex;
@@ -48,7 +49,7 @@
     height: 30px;
     top: 5%;
     right: 5%;
-    background: url("../../../img/icons/close.svg") center center/contain no-repeat;
+    background: url("../../img/icons/close.svg") center center/contain no-repeat;
     fill: var(--grey);
   }
   &__list {
@@ -79,7 +80,7 @@
   &__item-text {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 85px);
     max-width: 85%;
     gap: 15px;
     &_active {
@@ -92,6 +93,9 @@
       .tasks__item-input {
         display: block;
       }
+    }
+    @media (max-width: 480px) {
+      width: calc(100% - 45px);
     }
   }
   &__item-checkbox {
@@ -116,16 +120,16 @@
     }
     &:checked {
       &::before {
-        background: var(--bg-color) url("../../../img/icons/check-mark.svg") center center/contain no-repeat;
+        background: var(--bg-color) url("../../img/icons/check-mark.svg") center center/contain no-repeat;
       }
     }
   }
   &__item-value {
     cursor: pointer;
     word-wrap: break-word;
-    width: 100%;
     transition: color .3s;
     font-size: 20px;
+    width: calc(100% - 28px);
     &:hover {
       color: var(--accent-color);
     }
@@ -143,6 +147,10 @@
     display: flex;
     height: max-content;
     gap: 10px;
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 20px;
+    }
   }
   &__item-favorite-btn {
     cursor: pointer;

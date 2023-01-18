@@ -3,12 +3,13 @@ import { useEffect, useRef, useState } from "react";
 const TaskItem = ({task, onDoneTask, editTask, onFavoriteTask, onDeleteTask}) => {
   const [inputValue, setInputValue] = useState(task.text);
   const [isInputActive, setInputActive] = useState(false);
-
+  
   const input = useRef(null);
 
   useEffect(() => {
     if (isInputActive) {
       input.current.focus();
+      input.current.textContent = task.text;
     }
   }, [isInputActive]);
 
@@ -23,14 +24,14 @@ const TaskItem = ({task, onDoneTask, editTask, onFavoriteTask, onDeleteTask}) =>
 
   return (
     <li className="tasks__item">
-      <div className={`tasks__item-text ${isInputActive ? 'tasks__item-text_active' : null}`}>
-        <input
+      <div className={`tasks__item-text ${isInputActive ? 'tasks__item-text_active' : ''}`}>
+        <div
           ref={input}
           value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
+          contentEditable="true"
+          onKeyUp={e => setInputValue(e.target.textContent)}
           onBlur={onEditTask}
-          className="tasks__item-input"
-          type="text"/>
+          className="tasks__item-input"></div>
         <input
           className="tasks__item-checkbox"
           onChange={() => onDoneTask(task.id)}

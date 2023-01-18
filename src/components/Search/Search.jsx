@@ -1,4 +1,4 @@
-import React from 'react';
+import './Search.scss';
 
 const Search = ({searchTasks, searchInput, setSearchInput}) => {
 

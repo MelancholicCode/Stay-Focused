@@ -1,4 +1,4 @@
-import React from 'react';
+import './Modal.scss';
 
 const Modal = ({isActive, setIsActive, children}) => {
   return (
