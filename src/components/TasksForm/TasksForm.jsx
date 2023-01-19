@@ -15,7 +15,6 @@ const TasksForm = ({isActive, setFormActive, addTask}) => {
   }
 
   const onAddTask = (e) => {
-    console.log('Таска')
     e.preventDefault();
     if (!formInput.length) {
       /* Здесь сделать включение анимации на обертке

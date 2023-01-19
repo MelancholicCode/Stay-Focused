@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40%;
+  width: 80%;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
@@ -16,17 +16,17 @@
     justify-content: center;
     gap: 10px;
   }
-  &__current-mode {
-    font-size: 30px;
+  &__count {
+    font-size: clamp(3.75rem, -0.06rem + 19.05vw, 6.25rem);
     color: #fff;
   }
-  &__count {
-    font-size: 100px;
+  &__current-mode {
+    font-size: clamp(1.625rem, 1.244rem + 1.9vw, 1.875rem);
     color: #fff;
   }
   &__text {
     font-weight: 400;
-    font-size: 50px;
+    font-size: clamp(1.875rem, -0.03rem + 9.52vw, 3.125rem);
     color: #fff;
   }
 }

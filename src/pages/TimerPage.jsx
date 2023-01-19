@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Timer from '../components/Timer/Timer';
 import TimerSettingsItem from '../components/TimerSettingsItem/TimerSettingsItem';
+import ArrowIcon from '../img/icons/component-icons/ArrowIcon';
 
 const TimerPage = () => {
   const [currentModeName, setCurrentModeName] = useState('focus');
@@ -17,31 +18,40 @@ const TimerPage = () => {
   return (
     <div className='TimerPage page'>
       <div className="TimerPage__container">
-        <ul className="timer-settings">
-          {focusModes.map(mode => (
-            <TimerSettingsItem
-              key={mode.name}
-              mode={mode}/>
-          ))}
-        </ul>
-        <ul className="TimerPage__mode-list">
-          {focusModes.map(mode => {
-            let clazz = 'TimerPage__mode-item';
-            if (mode.name === currentMode.name) {
-              clazz += ' TimerPage__mode-item_active';
-            }
-            return (
-              <li
-                onClick={() => setCurrentModeName(mode.name)}
-                className={clazz}
-                key={mode.name}>
-                {mode.title}
-              </li>
-            )
-          })}
-        </ul>
-        <Timer
-          currentMode={currentMode}/>
+        <div className="TimerPage__content">
+          <div className="timer-settings">
+            <div className="timer-settings__box">
+              <p className="timer-settings__title">Настройка длительности</p>
+              <ArrowIcon
+                clazz={'timer-settings__icon'}/>
+            </div>
+            <ul className="timer-settings__list">
+              {focusModes.map(mode => (
+                <TimerSettingsItem
+                  key={mode.name}
+                  mode={mode}/>
+              ))}
+            </ul>
+          </div>
+          <Timer
+            currentMode={currentMode}/>
+          <ul className="TimerPage__mode-list">
+            {focusModes.map(mode => {
+              let clazz = 'TimerPage__mode-item';
+              if (mode.name === currentMode.name) {
+                clazz += ' TimerPage__mode-item_active';
+              }
+              return (
+                <li
+                  onClick={() => setCurrentModeName(mode.name)}
+                  className={clazz}
+                  key={mode.name}>
+                  {mode.title}
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
