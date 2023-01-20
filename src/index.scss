@@ -1,23 +1,4 @@
-@font-face {
-  font-family: "Monrad Grotesk";
-  src: url("fonts/Monrad Grotesk-Light.ttf");
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Monrad Grotesk";
-  src: url("fonts/Monrad Grotesk-Regular.ttf");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "Monrad Grotesk";
-  src: url("fonts/Monrad Grotesk-Semibold.ttf");
-  font-weight: 600;
-}
-@font-face {
-  font-family: "Monrad Grotesk";
-  src: url("fonts/Monrad Grotesk-Bold.ttf");
-  font-weight: 700;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
 * {
   box-sizing: border-box;
