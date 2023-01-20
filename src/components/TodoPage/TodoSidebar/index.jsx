@@ -1,5 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { NavLink, useMatch } from "react-router-dom";
+
 import './TodoSidebar.scss';
 
 const TodoSidebar = ({onChangeOption}) => {

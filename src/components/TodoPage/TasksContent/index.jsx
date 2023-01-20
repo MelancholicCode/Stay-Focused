@@ -1,10 +1,11 @@
+import Modal from '../../Modal';
+import Search from '../Search';
+import TasksForm from '../TasksForm';
+import TasksList from '../TasksList';
+
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useMatch, useParams } from 'react-router-dom';
-import Modal from '../Modal/Modal';
-import Search from '../Search/Search';
-import TasksForm from '../TasksForm/TasksForm';
-import TasksList from '../TasksList/TasksList';
 
 import './TasksContent.scss';
 

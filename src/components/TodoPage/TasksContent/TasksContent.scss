@@ -49,7 +49,7 @@
     height: 30px;
     top: 5%;
     right: 5%;
-    background: url("../../img/icons/close.svg") center center/contain no-repeat;
+    background: url("../../../img/icons/close.svg") center center/contain no-repeat;
     fill: var(--grey);
   }
   &__list {
@@ -120,7 +120,7 @@
     }
     &:checked {
       &::before {
-        background: var(--bg-color) url("../../img/icons/check-mark.svg") center center/contain no-repeat;
+        background: var(--bg-color) url("../../../img/icons/check-mark.svg") center center/contain no-repeat;
       }
     }
   }

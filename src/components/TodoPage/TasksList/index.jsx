@@ -1,6 +1,5 @@
-import React from 'react';
-import TaskItem from '../TaskItem/TaskItem';
-import emptyListImg from '../../img/empty-list.png';
+import TaskItem from '../TaskItem';
+import emptyListImg from '../../../img/empty-list.png';
 
 const TasksList = ({tasks, onDoneTask, editTask, onFavoriteTask, onDeleteTask}) => {
   return (

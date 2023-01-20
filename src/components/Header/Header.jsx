@@ -1,9 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
-import "./Header.scss";
 import MusicIcon from "../../img/icons/component-icons/MusicIcon";
 import NoteIcon from "../../img/icons/component-icons/NoteIcon";
 import WatchIcon from "../../img/icons/component-icons/WatchIcon";
 import ArrowIcon from "../../img/icons/component-icons/ArrowIcon";
+
+import { NavLink } from "react-router-dom";
+
+import "./Header.scss";
 
 const Header = () => {
   const linkItems = [

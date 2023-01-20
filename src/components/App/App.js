@@ -1,8 +1,11 @@
+import Header from "../Header/Header";
+import ErrorPage from "../../pages/ErrorPage";
+import TimerPage from "../../pages/TimerPage";
+import TodoPage from "../../pages/TodoPage";
+
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
-import ErrorPage from "./pages/ErrorPage";
-import TimerPage from "./pages/TimerPage";
-import TodoPage from "./pages/TodoPage";
+
+import "./App.scss";
 
 function App() {
   return (

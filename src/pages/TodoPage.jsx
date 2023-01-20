@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Route, Routes, useMatch } from 'react-router-dom';
-import TasksContent from '../components/TasksContent/TasksContent';
-import TodoSidebar from '../components/TodoSidebar/TodoSidebar';
+import { Route, Routes } from 'react-router-dom';
+import TasksContent from '../components/TodoPage/TasksContent';
+import TodoSidebar from '../components/TodoPage/TodoSidebar';
 
 const TodoPage = () => {
   const [searchQuery, setSearchQuery] = useState('');

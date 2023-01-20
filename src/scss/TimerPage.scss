@@ -26,6 +26,7 @@
     background-color: var(--accent-color);
     color: #fff;
     flex-grow: 1;
+    font-size: clamp(1rem, 0.917rem + 0.42vw, 1.25rem);
     &_active {
       background-color: #fff;
       border: 1px solid var(--accent-color);

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { getZero } from '../../utils/digits';
+import { getZero } from '../../../utils/digits';
 import './Timer.scss';
 
 const Timer = ({currentMode}) => {
@@ -22,6 +22,16 @@ const Timer = ({currentMode}) => {
     setSecondsCount('00');
   }
 
+  const calcTimer = (deadline) => {
+    if (deadline < new Date()) {
+      clearTimer(timerRef.current)
+      return;
+    }
+    const timeLeft = deadline - new Date();
+    setMinutesCount(getZero(Math.floor(timeLeft / (1000 * 60))));
+    setSecondsCount(getZero(Math.floor(timeLeft / 1000 % 60)));
+  }
+
   const onToggleTimer = () => {
     if (timerActive) {
       clearTimer(timerRef.current)
@@ -29,17 +39,8 @@ const Timer = ({currentMode}) => {
     }
     setTimerActive(true);
     const deadline = Date.parse(new Date()) + currentMode.value * 1000 * 60;
-    const calcTimer = () => {
-      if (deadline < new Date()) {
-        clearTimer(timerRef.current)
-        return;
-      }
-      const timeLeft = deadline - new Date();
-      setMinutesCount(getZero(Math.floor(timeLeft / (1000 * 60))));
-      setSecondsCount(getZero(Math.floor(timeLeft / 1000 % 60)));
-    }
-    calcTimer();
-    timerRef.current = setInterval(calcTimer, 1000);
+    calcTimer(deadline);
+    timerRef.current = setInterval(() => calcTimer(deadline), 1000);
   }
 
   return (
