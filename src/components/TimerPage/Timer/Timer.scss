@@ -7,7 +7,13 @@
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
+  color: #fff;
   background-color: var(--accent-color);
+  &_active {
+    border: 2px solid var(--accent-color);
+    background-color: var(--bg-color);
+    color: var(--accent-color);
+  }
   &__content {
     margin-top: 10%;
     display: flex;
@@ -18,16 +24,17 @@
   }
   &__count {
     font-size: clamp(3.75rem, -0.06rem + 19.05vw, 6.25rem);
-    color: #fff;
+    color: inherit;
   }
   &__current-mode {
     font-size: clamp(1.25rem, 0.298rem + 4.76vw, 1.875rem);
-    color: #fff;
+    color: inherit;
     text-align: center;
+    font-weight: 400;
   }
   &__text {
     font-weight: 400;
     font-size: clamp(1.875rem, -0.03rem + 9.52vw, 3.125rem);
-    color: #fff;
+    color: inherit;
   }
 }

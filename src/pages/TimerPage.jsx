@@ -1,18 +1,25 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Timer from '../components/TimerPage/Timer';
+import { changeMode } from '../components/TimerPage/Timer/timerSlice';
 import TimerSettingsItem from '../components/TimerPage/TimerSettingsItem';
 import ArrowIcon from '../img/icons/component-icons/ArrowIcon';
 
 const TimerPage = () => {
   const [settingsActive, setSettingsActive] = useState(false);
-  const [currentModeName, setCurrentModeName] = useState('focus');
-  const [focusRange, setFocusRange] = useState(30);
-  const [restRange, setRestRange] = useState(5);
-  const [longRestRange, setLongRestRange] = useState(15);
+  const dispatch = useDispatch();
+  const {
+    timerActive,
+    currentModeName,
+    focus,
+    rest,
+    longRest
+  } = useSelector(state => state.timer);
+
   const focusModes = [
-    {name: 'focus', title: 'Фокус', value: focusRange, setFunc: setFocusRange},
-    {name: 'rest', title: 'Отдых', value: restRange, setFunc: setRestRange},
-    {name: 'long-rest', title: 'Длинный отдых', value: longRestRange, setFunc: setLongRestRange},
+    {name: 'focus', title: 'Фокус', value: focus},
+    {name: 'rest', title: 'Отдых', value: rest},
+    {name: 'longRest', title: 'Длинный отдых', value: longRest},
   ];
   const currentMode = focusModes.find(mode => mode.name === currentModeName);
 
@@ -39,22 +46,23 @@ const TimerPage = () => {
           </div>
           <Timer
             currentMode={currentMode}/>
-          <ul className="TimerPage__mode-list">
+          <div className="TimerPage__modes">
             {focusModes.map(mode => {
               let clazz = 'TimerPage__mode-item';
               if (mode.name === currentMode.name) {
                 clazz += ' TimerPage__mode-item_active';
               }
               return (
-                <li
-                  onClick={() => setCurrentModeName(mode.name)}
+                <button
+                  onClick={() => dispatch(changeMode(mode.name))}
                   className={clazz}
-                  key={mode.name}>
+                  key={mode.name}
+                  disabled={timerActive}>
                   {mode.title}
-                </li>
+                </button>
               )
             })}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

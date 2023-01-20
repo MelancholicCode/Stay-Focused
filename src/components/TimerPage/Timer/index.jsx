@@ -1,54 +1,59 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { getZero } from '../../../utils/digits';
 import './Timer.scss';
+import { setTimerActive, setTimerCount, setTimerId } from './timerSlice';
 
 const Timer = ({currentMode}) => {
-  const [timerActive, setTimerActive] = useState(false);
-  const [minutesCount, setMinutesCount] = useState(currentMode.value);
-  const [secondsCount, setSecondsCount] = useState('00');
+  const dispatch = useDispatch();
+  const {timerActive, timerCount, timerId} = useSelector(state => state.timer);
 
-  const timerRef = useRef();
+  const timerRef = useRef(timerId);
 
   useEffect(() => {
-    clearTimer(timerRef.current);
-    setMinutesCount(currentMode.value);
-    setSecondsCount('00');
-  }, [currentMode]);
+    if (!timerActive) {
+      dispatch(setTimerCount(`${currentMode.value}:00`))
+    }
+  }, [currentMode])
 
   const clearTimer = (timerId) => {
     clearInterval(timerId);
-    setTimerActive(false);
-    setMinutesCount(currentMode.value);
-    setSecondsCount('00');
+    timerRef.current = null;
+    dispatch(setTimerId(timerRef.current));
+    dispatch(setTimerActive(false));
+    dispatch(setTimerCount(`${currentMode.value}:00`));
   }
 
   const calcTimer = (deadline) => {
     if (deadline < new Date()) {
-      clearTimer(timerRef.current)
+      clearTimer(timerRef.current);
       return;
     }
     const timeLeft = deadline - new Date();
-    setMinutesCount(getZero(Math.floor(timeLeft / (1000 * 60))));
-    setSecondsCount(getZero(Math.floor(timeLeft / 1000 % 60)));
+    dispatch(setTimerCount(`
+      ${getZero(Math.floor(timeLeft / (1000 * 60)))}:
+      ${getZero(Math.floor(timeLeft / 1000 % 60))}
+    `));
   }
 
   const onToggleTimer = () => {
     if (timerActive) {
-      clearTimer(timerRef.current)
+      clearTimer(timerRef.current);
       return;
     }
-    setTimerActive(true);
+    dispatch(setTimerActive(true));
     const deadline = Date.parse(new Date()) + currentMode.value * 1000 * 60;
     calcTimer(deadline);
     timerRef.current = setInterval(() => calcTimer(deadline), 1000);
+    dispatch(setTimerId(timerRef.current));
   }
 
   return (
     <div
       onClick={() => onToggleTimer()}
-      className="timer">
+      className={timerActive ? 'timer timer_active' : 'timer'}>
       <div className="timer__content">
-        <p className="timer__count">{`${minutesCount}:${secondsCount}`}</p>
+        <p className="timer__count">{timerCount}</p>
         <p className="timer__current-mode">Режим: {currentMode.title}</p>
         <p className="timer__text">{timerActive ? 'Стоп' : 'Старт'}</p>
       </div>
