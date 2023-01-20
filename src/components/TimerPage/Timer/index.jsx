@@ -26,6 +26,9 @@ const Timer = ({currentMode}) => {
 
   const calcTimer = (deadline) => {
     if (deadline < new Date()) {
+      const alarm = new Audio();
+      alarm.src = 'https://audiokaif.ru/wp-content/uploads/2022/02/1-Звук-электронного-будильника-1.mp3';
+      alarm.autoplay = true;
       clearTimer(timerRef.current);
       return;
     }
