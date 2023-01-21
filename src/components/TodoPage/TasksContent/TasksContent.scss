@@ -73,8 +73,9 @@
     justify-content: space-between;
     gap: 10px;
     padding: 30px 20px;
+    border-radius: 5px;
     &:hover {
-      outline: 3px solid var(--light-blue);
+      outline: 2px solid var(--accent-color);
     }
   }
   &__item-text {
@@ -184,9 +185,12 @@
     text-align: center;
     font-size: 18px;
     border-radius: 10px;
+    font-weight: 400;
+    transition: color .3s;
     &:hover {
       border: 1px solid transparent;
-      outline: 3px solid var(--light-blue);
+      color: var(--accent-color);
+      outline: 2px solid var(--accent-color);
     }
   }
 }

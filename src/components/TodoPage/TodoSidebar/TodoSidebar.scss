@@ -15,12 +15,13 @@
   &__item {
     cursor: pointer;
     padding: 20px;
+    border-radius: 5px;
     transition: color .3s;
     &_active {
       color: var(--accent-color);
     }
     &:hover {
-      outline: 3px solid var(--light-blue);
+      outline: 2px solid var(--accent-color);
     }
   }
 }
